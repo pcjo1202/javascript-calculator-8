@@ -68,6 +68,16 @@ class App {
   }
 
   /**
+   * 계산 기능
+   * @returns {number}
+   */
+  calculateSum() {
+    if (this.#numberArray.length === 0) return 0;
+
+    return this.#numberArray.reduce((sum, number) => sum + number, 0);
+  }
+
+  /**
    * 출력 기능
    * @param {number} result
    * @returns {void}
@@ -84,7 +94,7 @@ class App {
     // 3. 유효성 검증
     this.validateNumbers();
     // 4. 계산 기능
-    const sum = await this.calculateSum();
+    const sum = this.calculateSum();
     this.output(sum);
   }
 }
