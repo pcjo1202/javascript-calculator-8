@@ -52,6 +52,22 @@ class App {
   }
 
   /**
+   * 유효성 검증 기능
+   * @returns {void}
+   */
+  validateNumbers() {
+    // 1. 음수가 포함되어 있을 때
+    if (this.#numberArray.some((number) => number < 0)) {
+      throw new Error("[ERROR] 음수가 포함되어 있습니다.");
+    }
+    // 2. 숫자로 변환 불가능한 값 검증
+    if (this.#numberArray.some((number) => isNaN(number))) {
+      console.log(this.#numberArray);
+      throw new Error("[ERROR] 숫자로 변환 불가능한 값이 포함되어 있습니다.");
+    }
+  }
+
+  /**
    * 출력 기능
    * @param {number} result
    * @returns {void}
@@ -65,6 +81,11 @@ class App {
     this.#input = await this.input();
     // 2. 문자열 파싱
     this.parseInput();
+    // 3. 유효성 검증
+    this.validateNumbers();
+    // 4. 계산 기능
+    const sum = await this.calculateSum();
+    this.output(sum);
   }
 }
 
