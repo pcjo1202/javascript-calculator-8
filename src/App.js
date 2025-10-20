@@ -6,7 +6,7 @@ class App {
   #numberArray;
 
   constructor() {
-    this.#input = "//;\\n1;2;3";
+    this.#input = "";
     this.#separator = null;
     this.#numberArray = [];
   }
