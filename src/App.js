@@ -16,6 +16,10 @@ class App {
     );
   }
 
+  output(result) {
+    MissionUtils.Console.print(`결과 : ${result}`);
+  }
+
   async run() {
     // 1. 문자열 입력 받기
     this.#input = await this.input();
